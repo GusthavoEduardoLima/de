@@ -1,8 +1,9 @@
-from django.urls import path
-from api.views import UserCreateView
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    # outras URLs podem estar aqui
-    
-    path('api/create-user/', UserCreateView.as_view(), name='user-create'),
+    path('admin/', admin.site.urls),
+    path('api/users/', include('users.urls')),
+    path('api/orders/', include('orders.urls')),  # Placeholder
+    path('api/items/', include('items.urls')),    # Placeholder
 ]
